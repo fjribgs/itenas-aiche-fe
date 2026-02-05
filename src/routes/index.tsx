@@ -12,7 +12,7 @@ function App() {
 
       <div className='flex flex-col gap-1 items-center'>
         <div className='font-ibm text-[10px] font-medium border border-[#10B981]/20 rounded-2xl w-fit px-2 py-1 bg-[#10B981]/10 text-[#10B981] flex gap-1 items-center justify-center'>
-          <img src="/PillInfo/sustainability.svg" alt="" />
+          <img src="/pillinfo/sustainability.svg" alt="" />
           <p>ENGINEERING SUSTAINABLE FUTURE</p>
         </div>
 
