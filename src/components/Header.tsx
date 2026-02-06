@@ -42,7 +42,9 @@ export default function Header() {
 
   return (
     <>
-      <nav className='flex justify-between px-4 py-4 items-center shadow-sm w-full sticky z-2 top-0 bg-white md:px-[80px] xl:px-[180px]'>
+      <nav className={`flex justify-between ${matchRoute({ to:'/'}) ? 
+      "shadow-sm bg-white md:px-[80px] xl:px-[180px]" :
+      "bg-white/5 shadow-md rounded-2xl mx-2 my-2 md:mx-[80px] xl:mx-[160px] backdrop-blur-[2px]"} px-4 py-4 items-center sticky z-3 top-0 `}>
 
         <Link className='flex items-center gap-3' to='/'>
           <img src='/aiche-logo-light.svg' alt="AIChE Logo" 
