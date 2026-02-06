@@ -10,24 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StructureIndexRouteImport } from './routes/structure/index'
 import { Route as NewsIndexRouteImport } from './routes/news/index'
 import { Route as ContactIndexRouteImport } from './routes/contact/index'
 import { Route as AboutUsIndexRouteImport } from './routes/about-us/index'
-import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
-import { Route as DemoPrismaRouteImport } from './routes/demo/prisma'
-import { Route as StructureIndexRouteImport } from './routes/structure/index.'
-import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
-import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
-import { Route as DemoApiTqTodosRouteImport } from './routes/demo/api.tq-todos'
-import { Route as DemoApiNamesRouteImport } from './routes/demo/api.names'
-import { Route as DemoStartSsrIndexRouteImport } from './routes/demo/start.ssr.index'
-import { Route as DemoStartSsrSpaModeRouteImport } from './routes/demo/start.ssr.spa-mode'
-import { Route as DemoStartSsrFullSsrRouteImport } from './routes/demo/start.ssr.full-ssr'
-import { Route as DemoStartSsrDataOnlyRouteImport } from './routes/demo/start.ssr.data-only'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StructureIndexRoute = StructureIndexRouteImport.update({
+  id: '/structure/',
+  path: '/structure/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewsIndexRoute = NewsIndexRouteImport.update({
@@ -45,184 +40,43 @@ const AboutUsIndexRoute = AboutUsIndexRouteImport.update({
   path: '/about-us/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
-  id: '/demo/tanstack-query',
-  path: '/demo/tanstack-query',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoPrismaRoute = DemoPrismaRouteImport.update({
-  id: '/demo/prisma',
-  path: '/demo/prisma',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StructureIndexRoute = StructureIndexRouteImport.update({
-  id: '/structure/index/',
-  path: '/structure/index/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
-  id: '/demo/start/server-funcs',
-  path: '/demo/start/server-funcs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartApiRequestRoute = DemoStartApiRequestRouteImport.update({
-  id: '/demo/start/api-request',
-  path: '/demo/start/api-request',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiTqTodosRoute = DemoApiTqTodosRouteImport.update({
-  id: '/demo/api/tq-todos',
-  path: '/demo/api/tq-todos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoApiNamesRoute = DemoApiNamesRouteImport.update({
-  id: '/demo/api/names',
-  path: '/demo/api/names',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrIndexRoute = DemoStartSsrIndexRouteImport.update({
-  id: '/demo/start/ssr/',
-  path: '/demo/start/ssr/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrSpaModeRoute = DemoStartSsrSpaModeRouteImport.update({
-  id: '/demo/start/ssr/spa-mode',
-  path: '/demo/start/ssr/spa-mode',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrFullSsrRoute = DemoStartSsrFullSsrRouteImport.update({
-  id: '/demo/start/ssr/full-ssr',
-  path: '/demo/start/ssr/full-ssr',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
-  id: '/demo/start/ssr/data-only',
-  path: '/demo/start/ssr/data-only',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/demo/prisma': typeof DemoPrismaRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/about-us': typeof AboutUsIndexRoute
   '/contact': typeof ContactIndexRoute
   '/news': typeof NewsIndexRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/structure/index': typeof StructureIndexRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr': typeof DemoStartSsrIndexRoute
+  '/structure': typeof StructureIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/demo/prisma': typeof DemoPrismaRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/about-us': typeof AboutUsIndexRoute
   '/contact': typeof ContactIndexRoute
   '/news': typeof NewsIndexRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/structure/index': typeof StructureIndexRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr': typeof DemoStartSsrIndexRoute
+  '/structure': typeof StructureIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/demo/prisma': typeof DemoPrismaRoute
-  '/demo/tanstack-query': typeof DemoTanstackQueryRoute
   '/about-us/': typeof AboutUsIndexRoute
   '/contact/': typeof ContactIndexRoute
   '/news/': typeof NewsIndexRoute
-  '/demo/api/names': typeof DemoApiNamesRoute
-  '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/structure/index/': typeof StructureIndexRoute
-  '/demo/start/ssr/data-only': typeof DemoStartSsrDataOnlyRoute
-  '/demo/start/ssr/full-ssr': typeof DemoStartSsrFullSsrRoute
-  '/demo/start/ssr/spa-mode': typeof DemoStartSsrSpaModeRoute
-  '/demo/start/ssr/': typeof DemoStartSsrIndexRoute
+  '/structure/': typeof StructureIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/demo/prisma'
-    | '/demo/tanstack-query'
-    | '/about-us'
-    | '/contact'
-    | '/news'
-    | '/demo/api/names'
-    | '/demo/api/tq-todos'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/structure/index'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr'
+  fullPaths: '/' | '/about-us' | '/contact' | '/news' | '/structure'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/demo/prisma'
-    | '/demo/tanstack-query'
-    | '/about-us'
-    | '/contact'
-    | '/news'
-    | '/demo/api/names'
-    | '/demo/api/tq-todos'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/structure/index'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr'
-  id:
-    | '__root__'
-    | '/'
-    | '/demo/prisma'
-    | '/demo/tanstack-query'
-    | '/about-us/'
-    | '/contact/'
-    | '/news/'
-    | '/demo/api/names'
-    | '/demo/api/tq-todos'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/structure/index/'
-    | '/demo/start/ssr/data-only'
-    | '/demo/start/ssr/full-ssr'
-    | '/demo/start/ssr/spa-mode'
-    | '/demo/start/ssr/'
+  to: '/' | '/about-us' | '/contact' | '/news' | '/structure'
+  id: '__root__' | '/' | '/about-us/' | '/contact/' | '/news/' | '/structure/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DemoPrismaRoute: typeof DemoPrismaRoute
-  DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
   AboutUsIndexRoute: typeof AboutUsIndexRoute
   ContactIndexRoute: typeof ContactIndexRoute
   NewsIndexRoute: typeof NewsIndexRoute
-  DemoApiNamesRoute: typeof DemoApiNamesRoute
-  DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
-  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
-  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
   StructureIndexRoute: typeof StructureIndexRoute
-  DemoStartSsrDataOnlyRoute: typeof DemoStartSsrDataOnlyRoute
-  DemoStartSsrFullSsrRoute: typeof DemoStartSsrFullSsrRoute
-  DemoStartSsrSpaModeRoute: typeof DemoStartSsrSpaModeRoute
-  DemoStartSsrIndexRoute: typeof DemoStartSsrIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/structure/': {
+      id: '/structure/'
+      path: '/structure'
+      fullPath: '/structure'
+      preLoaderRoute: typeof StructureIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/news/': {
@@ -255,102 +116,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutUsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/tanstack-query': {
-      id: '/demo/tanstack-query'
-      path: '/demo/tanstack-query'
-      fullPath: '/demo/tanstack-query'
-      preLoaderRoute: typeof DemoTanstackQueryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/prisma': {
-      id: '/demo/prisma'
-      path: '/demo/prisma'
-      fullPath: '/demo/prisma'
-      preLoaderRoute: typeof DemoPrismaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/structure/index/': {
-      id: '/structure/index/'
-      path: '/structure/index'
-      fullPath: '/structure/index'
-      preLoaderRoute: typeof StructureIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/server-funcs': {
-      id: '/demo/start/server-funcs'
-      path: '/demo/start/server-funcs'
-      fullPath: '/demo/start/server-funcs'
-      preLoaderRoute: typeof DemoStartServerFuncsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/api-request': {
-      id: '/demo/start/api-request'
-      path: '/demo/start/api-request'
-      fullPath: '/demo/start/api-request'
-      preLoaderRoute: typeof DemoStartApiRequestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/api/tq-todos': {
-      id: '/demo/api/tq-todos'
-      path: '/demo/api/tq-todos'
-      fullPath: '/demo/api/tq-todos'
-      preLoaderRoute: typeof DemoApiTqTodosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/api/names': {
-      id: '/demo/api/names'
-      path: '/demo/api/names'
-      fullPath: '/demo/api/names'
-      preLoaderRoute: typeof DemoApiNamesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/': {
-      id: '/demo/start/ssr/'
-      path: '/demo/start/ssr'
-      fullPath: '/demo/start/ssr'
-      preLoaderRoute: typeof DemoStartSsrIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/spa-mode': {
-      id: '/demo/start/ssr/spa-mode'
-      path: '/demo/start/ssr/spa-mode'
-      fullPath: '/demo/start/ssr/spa-mode'
-      preLoaderRoute: typeof DemoStartSsrSpaModeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/full-ssr': {
-      id: '/demo/start/ssr/full-ssr'
-      path: '/demo/start/ssr/full-ssr'
-      fullPath: '/demo/start/ssr/full-ssr'
-      preLoaderRoute: typeof DemoStartSsrFullSsrRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/demo/start/ssr/data-only': {
-      id: '/demo/start/ssr/data-only'
-      path: '/demo/start/ssr/data-only'
-      fullPath: '/demo/start/ssr/data-only'
-      preLoaderRoute: typeof DemoStartSsrDataOnlyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DemoPrismaRoute: DemoPrismaRoute,
-  DemoTanstackQueryRoute: DemoTanstackQueryRoute,
   AboutUsIndexRoute: AboutUsIndexRoute,
   ContactIndexRoute: ContactIndexRoute,
   NewsIndexRoute: NewsIndexRoute,
-  DemoApiNamesRoute: DemoApiNamesRoute,
-  DemoApiTqTodosRoute: DemoApiTqTodosRoute,
-  DemoStartApiRequestRoute: DemoStartApiRequestRoute,
-  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
   StructureIndexRoute: StructureIndexRoute,
-  DemoStartSsrDataOnlyRoute: DemoStartSsrDataOnlyRoute,
-  DemoStartSsrFullSsrRoute: DemoStartSsrFullSsrRoute,
-  DemoStartSsrSpaModeRoute: DemoStartSsrSpaModeRoute,
-  DemoStartSsrIndexRoute: DemoStartSsrIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
