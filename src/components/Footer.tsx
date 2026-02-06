@@ -43,10 +43,10 @@ export default function Footer() {
         <div className="flex">
 
             <div className={`py-3 w-screen bg-linear-to-br from-[#ECFDF5]/80 to-[#FFFFFF]/50 justify-between items-center px-6 sm:px-22 xl:px-42 ${isContact ? "hidden" : "flex"}`}>
-                <p className='font-nunito text-[8px] lg:text-[12px]'>© 2026 AIChE SC ITENAS. All rights reserved.</p>
+                <p className='font-nunito text-[8px] lg:text-[12px] 2xl:text-[14px]'>© 2026 AIChE SC ITENAS. All rights reserved.</p>
                 <div>
                     <img src="/footer/mail.svg" alt="" 
-                    className='w-2 lg:w-3'/>
+                        className='w-2 lg:w-3 2xl:w-5'/>
                 </div>
             </div>
 
