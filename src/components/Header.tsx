@@ -1,16 +1,108 @@
-import { Link } from '@tanstack/react-router'
+import { Link, useMatchRoute } from '@tanstack/react-router'
+
+import { useState } from 'react'
+
+interface MenuItem {
+  id: number;
+  title: string;
+  path: string;
+}
+
+const menuItems: MenuItem[] = [
+  {
+    id: 1,
+    title: "Home",
+    path: "/"
+  },
+  {
+    id: 2,
+    title: "About Us",
+    path: "/about-us"
+  },
+  {
+    id: 3,
+    title: "Berita",
+    path: "/news"
+  },
+  {
+    id: 4,
+    title: "Struktur Organisasi",
+    path: "/organizational-structure"
+  },
+  {
+    id: 5,
+    title: "Kontak",
+    path: "/contact"
+  }
+]
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false)
+  const matchRoute = useMatchRoute()
+
   return (
-    <nav className='flex justify-between px-3 py-5'>
-      <Link className='flex items-center gap-2' to='/'>
-        <img src='/public/aiche-logo-light.svg' alt="AIChE Logo" 
-          className='w-7'/>
-        <p className='font-bold font-nunito'>AIChE SC ITENAS</p>
-      </Link>
-      <div></div>
-      <div className=''></div>
-    </nav>
+    <>
+      <nav className='flex justify-between px-4 py-4 items-center shadow-sm w-full sticky z-2 top-0 bg-white md:px-[80px] xl:px-[180px]'>
+
+        <Link className='flex items-center gap-3' to='/'>
+          <img src='/aiche-logo-light.svg' alt="AIChE Logo" 
+            className='w-7 2xl:w-10'/>
+          <p className='font-bold font-nunito text-[18px] 2xl:text-[21px]'>AIChE SC ITENAS</p>
+        </Link>
+
+        <div className='hidden lg:flex absolute left-1/2 -translate-x-1/2'>
+          <ul className='flex gap-[20px] 2xl:gap-[33px]'>
+            {menuItems.map((item) => (
+              <li key={item.id} className='flex'>
+                
+                <Link to={item.path}
+                  className='font-nunito text-[12px] 2xl:text-[15px] group'>
+                  {item.title}
+
+                  <div className={`bg-[#3B82F6] h-0.5 group-hover:w-full ${matchRoute({ to: item.path })
+                    ? "w-full"
+                    : "w-0"}`}></div>
+                </Link>
+                
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className='flex z-2'>
+          <button onClick={() => setIsOpen(!isOpen)} className='lg:hidden'>
+            <img src='/sidebar-left.svg' alt="" 
+              className={`${isOpen ? "rotate-180" : "rotate-0"} w-5`}/>
+          </button>
+
+          <button className='hidden lg:flex font-nunito font-bold bg-linear-to-b to-[#2563EB] from-[#10B981] px-5 py-1.5 text-white rounded-lg text-[12px] 2xl:text-[16px] gap-1 cursor-pointer hover:shadow-lg'
+            >
+            Join Us
+            <img src="/button/right-arrow.svg" alt="" />
+          </button>
+        </div>
+
+      </nav>
+
+      <aside className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} flex h-screen font-nunito px-7 py-6 z-1 w-[65vw] md:w-[45vw] bg-white fixed right-0 shadow-sm text-lg`}>
+        <nav>
+          <ul className='flex flex-col gap-3'>
+            {menuItems.map((item) => (
+              <li key={item.id}>
+                <Link to={item.path} 
+                  onClick={() => setIsOpen(false)}
+                  activeProps={{
+                    className:
+                      'border-b-2 border-[#3B82F6]',
+                  }}>
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    </>
   )
 }
 // export default function Header() {
