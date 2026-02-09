@@ -1,4 +1,5 @@
 import { Link, useMatchRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 interface MenuItem {
   id: number;
@@ -35,14 +36,29 @@ const menuItems: MenuItem[] = [
 ]
 
 export default function Footer() {
+    const [isAtBottom, setIsAtBottom] = useState(false)
     const matchRoute = useMatchRoute()
 
     const isContact = matchRoute({ to: '/contact' })
 
-    return (
-        <div className="fixed bottom-0">
+    useEffect(() => {
+        const handleScroll = () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+            const atBottom = scrollTop + clientHeight >= scrollHeight - 2
+            console.log({ scrollTop, clientHeight, scrollHeight, atBottom })
+            setIsAtBottom(atBottom)
+        }
 
-            <div className={`py-3 w-screen bg-linear-to-br from-[#ECFDF5]/80 to-[#FFFFFF]/50 justify-between items-center px-6 sm:px-22 xl:px-42 ${isContact ? "hidden" : "flex"}`}>
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+    return (
+        <div>
+
+            <div className={`fixed bottom-0 py-3 w-screen bg-linear-to-br from-[#ECFDF5]/80 to-[#FFFFFF]/50 justify-between items-center px-6 sm:px-22 xl:px-42 ${isContact && isAtBottom ? 
+                "opacity-0 translate-y-6 pointer-events-none flex" : 
+                "opacity-100 translate-y-0 flex"}`}>
                 <p className='font-nunito text-[8px] lg:text-[12px] 2xl:text-[14px]'>© 2026 AIChE SC ITENAS. All rights reserved.</p>
                 <div>
                     <img src="/footer/mail.svg" alt="" 
@@ -50,7 +66,9 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className={`py-10 w-screen bg-linear-to-br from-[#ECFDF5]/80 to-[#FFFFFF]/50 justify-between px-6 sm:px-22 xl:px-42 ${isContact ? "flex" : "hidden"}`}>
+            <div className={`fixed bottom-0 py-10 w-screen bg-linear-to-br from-[#ECFDF5]/80 to-[#FFFFFF]/50 justify-between px-6 sm:px-22 xl:px-42 ${isContact && isAtBottom ? 
+                "opacity-100 translate-y-0 flex" : 
+                "opacity-0 translate-y-6 pointer-events-none"}`}>
                 <div className="flex gap-14 2xl:gap-28">
                     <div className="flex flex-col gap-3">
                         <div className="flex flex-col">
