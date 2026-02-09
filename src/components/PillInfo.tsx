@@ -1,7 +1,7 @@
 interface PillInfoProps {
     text: string;
     showIcon: boolean;
-    icon: string;
+    icon?: string;
 }
 
 export default function PillInfo({ text="", showIcon=true, icon="" }: PillInfoProps) {

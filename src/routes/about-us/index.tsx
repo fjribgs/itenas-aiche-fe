@@ -30,10 +30,10 @@ export const Route = createFileRoute('/about-us/')({
 function RouteComponent() {
   return (
     <>
-      <div className='flex flex-col justify-center text-center items-center relative overflow-y-scroll scrollbar-hide'>
+      <div className='flex flex-col justify-center text-center items-center relative'>
     
           <div className='flex flex-col items-center h-[40vh] justify-center'>
-            <PillInfo text='ABOUT US' showIcon={false} icon=''/>
+            <PillInfo text='ABOUT US' showIcon={false} />
     
             <div className='flex flex-col leading-9.5 mt-4 2xl:mt-6'>
               <h1 className='font-nunito font-bold text-[40px] sm:text-[50px] 2xl:text-[64px]'>Siapa Kita?</h1>
