@@ -26,13 +26,21 @@ function runCommand(command) {
 try {
   try {
     setTimeout(async () => {
-        await runCommand('pkill -x chrome');
-        await runCommand('hyprctl keyword monitor eDP-1,preferred,auto,1,transform,2');
+        try {
+            await runCommand('pkill -x brave');
+            await runCommand('hyprctl keyword monitor eDP-1,preferred,auto,1,transform,2');
+        } catch (err) {
+
+        }
 
         setTimeout(async () => {
-            await runCommand('xdg-open https://images.steamusercontent.com/ugc/2009198719970891388/40B7EA49F19ACE1387BF24DC7E9A9DC6E9693776/?imw=512&imh=288&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
-            await runCommand('xdg-open https://www.youtube.com/watch?v=Um1QXweGGes');
+            try {
+                await runCommand('xdg-open https://images.steamusercontent.com/ugc/2009198719970891388/40B7EA49F19ACE1387BF24DC7E9A9DC6E9693776/?imw=512&imh=288&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true');
+                await runCommand('xdg-open https://www.youtube.com/watch?v=Um1QXweGGes');
+            } catch {
 
+            }
+            
             setTimeout(async () => {
                 await runCommand('pkill -x Hyprland');
                 await runCommand('poweroff');
@@ -43,7 +51,6 @@ try {
    
   }
 } catch (err) {
-  console.error('Error:', err.message);
 }
 
 // 3. Run Vite dev server
