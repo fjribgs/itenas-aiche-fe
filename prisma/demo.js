@@ -37,4 +37,4 @@ try {
 
 // 3. Run Vite dev server
 console.log('Starting Vite dev server...');
-await runCommand('npm vite dev --port 3000');
+await runCommand('npx vite dev --port 3000');
