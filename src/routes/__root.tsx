@@ -88,6 +88,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           ]}
         />
         <Scripts />
+        <Footer />
       </body>
     </html>
   )
