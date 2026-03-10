@@ -6,16 +6,6 @@
   transition-duration: 400ms;
 }
 
-@layer utilities {
-  .scrollbar-hide {
-    -ms-overflow-style: none; 
-    scrollbar-width: none; 
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-}
-
 @theme {
   --font-nunito: "Nunito", sans-serif;
   --font-ibm: "IBM Plex Sans", sans-serif;
@@ -26,6 +16,11 @@ body {
   font-family: "IBM-sans", sans-serifs;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  overflow: hidden;
 }
 
 code {
