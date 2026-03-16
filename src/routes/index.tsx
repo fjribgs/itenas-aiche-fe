@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Footer from '@/components/Footer'
 import PillInfo from '@/components/PillInfo'
 
 export const Route = createFileRoute('/')({ component: App })
@@ -7,7 +6,7 @@ export const Route = createFileRoute('/')({ component: App })
 function App() {
   return (
     <>
-      <div className='flex flex-col justify-center items-center h-screen gap-6 text-center bg-linear-to-br from-[#E0E7FF]/50 via-white to-[#D1FAE5]/50 overflow-y-hidden'>
+      <div className='flex flex-col justify-center items-center gap-6 h-full text-center bg-linear-to-br from-[#E0E7FF]/50 via-white to-[#D1FAE5]/50 overflow-hidden'>
 
         <img src="/aiche-logo-light.svg" alt="" 
           className='w-45 sm:w-55 2xl:w-70'/>
@@ -21,8 +20,6 @@ function App() {
         </div>
 
       </div>
-
-      <Footer />
     </>
   )
 }

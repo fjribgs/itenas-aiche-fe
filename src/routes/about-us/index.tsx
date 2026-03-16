@@ -29,10 +29,10 @@ export const Route = createFileRoute('/about-us/')({
 function RouteComponent() {
   return (
     <>
-      <div className='flex flex-col justify-center text-center items-center overflow-x-hidden'>
+
+      <div className='flex flex-col justify-center text-center items-center overflow-x-hidden mt-20'>
     
         <div className='flex flex-col items-center justify-center overflow-y-hidden h-[30vh] lg:h-[40vh]'>
-
           <PillInfo text='ABOUT US' showIcon={false} />
     
           <div className='flex flex-col leading-9.5 mt-4 2xl:mt-6'>
@@ -44,13 +44,11 @@ function RouteComponent() {
         </div>
 
         <div className='flex flex-col px-7 md:px-26 xl:px-44 relative gap-10 mb-10 overflow-y-hidden'>
-
           <p className='font-ibm font-normal text-[13px] xl:text-[17px] 2xl:text-[22px] md:text-[16px] xl:px-26 2xl:px-40'>AIChE SC ITENAS is a premier student body dedicated to bridging the gap between academia and industry through sustainable engineering practices. We are a community of innovators, thinkers, and future leaders.</p>
 
           <div className='flex justify-between mx-2 xl:px-40 2xl:px-70'>
 
             <div className='flex flex-col gap-3'>
-
                 <Lists text="Student-led" icon="student"/>
 
                 <Lists text="Sustainability Focus" icon="sustainability"/>
@@ -64,8 +62,7 @@ function RouteComponent() {
               </div>
             </div>
 
-            <div className='flex flex-col my-7 xl:my-14 px-2 2xl:my-30 overflow-y-hidden'>
-
+            <div className='flex flex-col mt-7 xl:mt-14 px-2 2xl:mt-30 overflow-y-hidden'>
               <h3 className='font-ibm font-bold text-[12px] 2xl:text-[16px] text-[#3B82F6]'>OUR CORE VALUES</h3>
 
               <h2 className='font-nunito font-bold text-[28px] 2xl:text-[43px]'><span className='text-[#3B82F6]'>Vision</span> & <span className='text-[#10B981]'>Mission</span></h2>
