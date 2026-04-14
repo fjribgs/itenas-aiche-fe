@@ -43,8 +43,8 @@ export default function Header() {
   return (
     <>
       <nav className={`flex justify-between ${matchRoute({ to:'/'}) ? 
-      "shadow-sm bg-white md:px-[80px] xl:px-[180px]" :
-      "bg-white/5 shadow-md rounded-2xl mx-2 my-2 md:mx-[80px] xl:mx-[160px] backdrop-blur-[2px]"} px-4 py-4 items-center sticky z-3 top-0 `}>
+      "shadow-sm bg-white md:px-20 xl:px-[180px]" :
+      "bg-white/5 shadow-md rounded-2xl mx-2 my-2 md:mx-20 xl:mx-40 backdrop-blur-[2px]"} px-4 py-4 items-center fixed z-3 top-0 left-0 right-0`}>
 
         <Link className='flex items-center gap-3' to='/'>
           <img src='/aiche-logo-light.svg' alt="AIChE Logo" 
@@ -53,7 +53,7 @@ export default function Header() {
         </Link>
 
         <div className='hidden lg:flex absolute left-1/2 -translate-x-1/2'>
-          <ul className='flex gap-[20px] 2xl:gap-[33px]'>
+          <ul className='flex gap-5 2xl:gap-[33px]'>
             {menuItems.map((item) => (
               <li key={item.id} className='flex'>
                 
@@ -86,7 +86,7 @@ export default function Header() {
 
       </nav>
 
-      <aside className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} flex h-screen font-nunito px-7 py-6 z-1 w-[65vw] md:w-[45vw] bg-white fixed right-0 shadow-sm text-lg`}>
+      <aside className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} flex h- font-nunito px-7 py-6 z-1 w-[65vw] md:w-[45vw] bg-white fixed right-0 shadow-sm text-lg`}>
         <nav>
           <ul className='flex flex-col gap-3'>
             {menuItems.map((item) => (
