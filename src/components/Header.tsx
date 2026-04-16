@@ -86,7 +86,7 @@ export default function Header() {
 
       </nav>
 
-      <aside className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} flex h- font-nunito px-7 py-6 z-1 w-[65vw] md:w-[45vw] bg-white fixed right-0 shadow-sm text-lg`}>
+      <aside className={`${isOpen ? 'translate-x-0' : 'translate-x-full'} h-screen top-20 font-nunito px-7 py-6 z-1 w-[65vw] md:w-[45vw] bg-white fixed right-0 max-lg:block hidden shadow-sm text-lg`}>
         <nav>
           <ul className='flex flex-col gap-3'>
             {menuItems.map((item) => (
