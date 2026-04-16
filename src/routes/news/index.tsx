@@ -6,10 +6,11 @@ export const Route = createFileRoute('/news/')({
 
 function RouteComponent() {
   return (
-    <div className='flex flex-col relative mx-2 my-2 md:mx-20 xl:mx-40 h-full justify-center max-sm:mx-7 max-md:mx-12'>
-
-      <div className='font-ibm font-bold text-sm 2xl:text-md text-[#10B981]'>LATEST UPDATES</div>
-      <div className='font-ibm text-4xl 2xl:text-5xl font-extrabold'>News & Articles</div>
+    <div className='flex flex-col relative mx-2 my-10 md:mx-20 xl:mx-40 h-auto gap-10 min-h-screen justify-center max-sm:mx-7 max-md:mx-12'>
+      <div>
+        <div className='font-ibm font-normal text-sm 2xl:text-md text-[#10B981]'>LATEST UPDATES</div>
+        <div className='font-ibm text-4xl 2xl:text-5xl font-extrabold'>News & Articles</div>
+      </div>
 
       <div className='flex max-lg:flex-col flex-row gap-3'>
 
